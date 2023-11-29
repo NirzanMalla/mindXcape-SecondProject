@@ -17,7 +17,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 
-
 const pages = ["Home", "Football", "Swimming", "Golf", "NBA", "UFC", "F1"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -72,7 +71,6 @@ function Navbar() {
     color: 'inherit',
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
@@ -114,7 +112,6 @@ function Navbar() {
                 {isMobile ? (
                   <>
                     <Button
-                      
                       size="small"
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
@@ -135,7 +132,6 @@ function Navbar() {
                   <>
                     {pages.map((page) => (
                       <Button
-                        
                         key={page}
                         onClick={handleCloseNavMenu}
                         sx={{
