@@ -13,9 +13,11 @@ import Swimming from "./components/Swimming";
 const App = () => {
   return (
     <>
+    
       <Navbar/>
       <Routes>
-      <Route exact path="/" Component={Home}/>
+        <Route exact path="/" Component={Home}/>
+        <Route path="/home" Component={Home}/>
         <Route path="/football" Component={Football}/>
         <Route path="/f1" Component={Fone}/>
         <Route path="/golf" Component={Golf}/>
@@ -23,6 +25,7 @@ const App = () => {
         <Route path="/ufc" Component={Ufc}/>
         <Route path="/swimming" Component={Swimming}/>
       </Routes>
+       
     </>
   );
 };
