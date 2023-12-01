@@ -16,8 +16,19 @@ import AnchorIcon from '@mui/icons-material/Anchor';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { NavLink } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 
+const theme = createTheme({
+  typography:{
+    fontFamily: 'Poppins',
+    fontWeightLight: 200,
+    fontWeightRegular: 300,
+    fontWeightMedium: 400,
+    fontWeightBold: 500,
+  }
+})
 const pages = ["Home", "Football", "Swimming", "Golf", "NBA", "UFC", "F1"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -72,7 +83,6 @@ function Navbar() {
     color: 'inherit',
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
@@ -87,11 +97,11 @@ function Navbar() {
 
 
   return (
-    
+    <ThemeProvider theme={theme}>
         <AppBar
           position="fixed"
           style={{
-            backgroundColor: "rgb(0,0,139, 0.7)",
+            backgroundColor: "rgb(0,0,139, 0.9)",
             boxShadow: "5px 5px 10px 0px rgba(0, 0, 0, 0.5)",
             justifyContent: "space-between",
             alignItems: "center",
@@ -105,16 +115,18 @@ function Navbar() {
                   mr: "auto",
                 }}
               >
-               <IconButton>
+                <NavLink to="/">
+                <IconButton>
                   <AnchorIcon style={{ color: "white" }}/>
                </IconButton>
+                </NavLink>
+               
               </Box>
 
               <Box sx={{ display: "flex" }}>
                 {isMobile ? (
                   <>
                     <Button
-                      
                       size="small"
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
@@ -124,7 +136,6 @@ function Navbar() {
                       style={{
                         color: "whitesmoke",
                         backgroundColor: "gray",
-                        fontFamily:"monospace",
                         boxShadow: "0px 0px 0px 0px",
                       }}
                     >
@@ -134,20 +145,23 @@ function Navbar() {
                 ) : (
                   <>
                     {pages.map((page) => (
-                      <Button
-                        
+                     
+                       <Button
                         key={page}
                         onClick={handleCloseNavMenu}
+                        component={NavLink}
+                        to={`/${page.toLowerCase()}`}
                         sx={{
                           mr: 2,
                           textTransform: "none",
                           color: "white",
-                          fontFamily:"monospace",
                         }}
                         size="small"
                       >
                         {page}
                       </Button>
+                      
+                     
                     ))}
                   </>
                 )}
@@ -174,9 +188,8 @@ function Navbar() {
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Typography
                         textAlign="center"
-                        style={{
-                          fontFamily:"monospace",
-                        }}
+                        component={NavLink}
+                        to={`/${page.toLowerCase()}`}
                       >
                         {page}
                       </Typography>
@@ -195,9 +208,6 @@ function Navbar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              style={{
-                fontFamily:"monospace",
-              }}
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
@@ -240,9 +250,6 @@ function Navbar() {
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography
-                        style={{
-                          fontFamily:"monospace",
-                        }}
                         textAlign="center"
                       >
                         {setting}
@@ -254,7 +261,7 @@ function Navbar() {
             </Toolbar>
           </Container>
         </AppBar>
-     
+        </ThemeProvider>
   );
 }
 export default Navbar;
