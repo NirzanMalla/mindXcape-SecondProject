@@ -16,7 +16,7 @@ import AnchorIcon from '@mui/icons-material/Anchor';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 
@@ -101,7 +101,7 @@ function Navbar() {
         <AppBar
           position="fixed"
           style={{
-            backgroundColor: "rgb(0,0,139, 0.7)",
+            backgroundColor: "rgb(0,0,139, 0.9)",
             boxShadow: "5px 5px 10px 0px rgba(0, 0, 0, 0.5)",
             justifyContent: "space-between",
             alignItems: "center",
@@ -115,9 +115,12 @@ function Navbar() {
                   mr: "auto",
                 }}
               >
-               <IconButton>
+                <NavLink to="/">
+                <IconButton>
                   <AnchorIcon style={{ color: "white" }}/>
                </IconButton>
+                </NavLink>
+               
               </Box>
 
               <Box sx={{ display: "flex" }}>
@@ -146,7 +149,7 @@ function Navbar() {
                        <Button
                         key={page}
                         onClick={handleCloseNavMenu}
-                        component={Link}
+                        component={NavLink}
                         to={`/${page.toLowerCase()}`}
                         sx={{
                           mr: 2,
@@ -185,7 +188,7 @@ function Navbar() {
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                       <Typography
                         textAlign="center"
-                        component={Link}
+                        component={NavLink}
                         to={`/${page.toLowerCase()}`}
                       >
                         {page}
