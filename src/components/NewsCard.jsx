@@ -5,6 +5,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Container, Grid } from '@mui/material';
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+
+const theme = createTheme({
+    typography:{
+      fontFamily: 'Poppins',
+      fontWeightLight: 200,
+      fontWeightRegular: 300,
+      fontWeightMedium: 400,
+      fontWeightBold: 500,
+    }
+  })
 
 const news = [
     {
@@ -30,6 +42,7 @@ const news = [
 export default function NewsCard() {
 
   return (
+    <ThemeProvider theme={theme}>
         <Container>
         <Grid container>
         {news.map((value, index)=>(
@@ -56,7 +69,7 @@ export default function NewsCard() {
     </Grid>))}
     </Grid>
     </Container>
-    
+    </ThemeProvider>
     
     
     
