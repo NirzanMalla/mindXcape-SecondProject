@@ -6,13 +6,13 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
  } from "react-router-dom";
-import Home from "./components/Home";
-import Football from "./components/Football"
-import Fone from "./components/F1"
-import Golf from "./components/Golf"
-import Nba from "./components/Nba"
-import Ufc from "./components/Ufc"
-import Swimming from "./components/Swimming";
+import Home from "./pages/Home";
+import Football from "./pages/Football"
+import Fone from "./pages/F1"
+import Golf from "./pages/Golf"
+import Nba from "./pages/Nba"
+import Ufc from "./pages/Ufc"
+import Swimming from "./pages/Swimming";
 import RootLayout from "./layout/RootLayout";
 
 const router = createBrowserRouter(
