@@ -3,13 +3,13 @@ import axios from "axios";
 import { Container, Grid } from "@mui/material";
 import NewsCard from "../components/NewsCard";
 
-const Nba = () => {
+const Cricket = () => {
   const [data, setData] = useState([]);
 
   const getNews = async () => {
     try {
       const response = await axios.get(
-        "https://newsapi.org/v2/everything?q=basketball&apiKey=7bac9af99b1f428aabfad796604cf50c"
+        "https://newsapi.org/v2/everything?q=cricket&apiKey=7bac9af99b1f428aabfad796604cf50c"
       );
       setData(response.data.articles);
     } catch (error) {
@@ -38,4 +38,4 @@ const Nba = () => {
   );
 };
 
-export default Nba;
+export default Cricket;
