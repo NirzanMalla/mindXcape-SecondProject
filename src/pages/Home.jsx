@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
-import NewsCard from "../components/NewsCard"
+import Stories from "../components/Stories";
 
 const Home = () => {
   return (
     <Box my="80px">
-         <NewsCard/>
+         <Stories/>
     </Box>
      
     );

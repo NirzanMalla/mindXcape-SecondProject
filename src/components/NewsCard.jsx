@@ -52,6 +52,7 @@ export default function NewsCard() {
         sx={{ height: 170 }}
         image={value.image}
         title={value.title}
+        objectFit= "contain"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -70,8 +71,5 @@ export default function NewsCard() {
     </Grid>
     </Container>
     </ThemeProvider>
-    
-    
-    
   );
 }
