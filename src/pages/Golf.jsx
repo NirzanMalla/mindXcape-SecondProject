@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Grid } from "@mui/material";
@@ -5,11 +6,11 @@ import NewsCard from "../components/NewsCard";
 
 const Golf = () => {
   const [data, setData] = useState([]);
-
+  const apikey = import.meta.env.VITE_API_KEY;
   const getNews = async () => {
     try {
       const response = await axios.get(
-        "https://newsapi.org/v2/everything?q=golf&apiKey=7bac9af99b1f428aabfad796604cf50c"
+        `https://newsapi.org/v2/everything?q=golf&apiKey=${apikey}`
       );
       setData(response.data.articles);
     } catch (error) {
