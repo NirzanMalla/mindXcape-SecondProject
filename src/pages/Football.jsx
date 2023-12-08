@@ -12,7 +12,7 @@ const Football = () => {
       const response = await axios.get(
         `https://newsapi.org/v2/everything?q=football&apiKey=${apikey}`
       );
-      setData(response.data.articles);
+      setData(response?.data?.articles);
     } catch (error) {
       console.error("Error fetching news:", error);
     }

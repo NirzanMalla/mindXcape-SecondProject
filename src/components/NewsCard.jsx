@@ -21,18 +21,18 @@ const NewsCard = ({ value }) => {
       <CardMedia
         sx={{ height: 170 }}
         image={
-          value.urlToImage ||
+          value?.urlToImage ||
           "https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg"
         }
-        title={value.title || "default image"}
+        title={value?.title || "default image"}
       />
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {value.description}
+          {value?.description ?? "This is the default description section"}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {value.content}
+          {value?.content ?? "This is the default content section"}
         </Typography>
       </CardContent>
       <CardActions>

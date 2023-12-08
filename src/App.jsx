@@ -20,7 +20,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route exact path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
       <Route path="/football" element={<Football />} />
       <Route path="/cricket" element={<Cricket />} />
       <Route path="/golf" element={<Golf />} />
