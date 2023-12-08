@@ -1,26 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { Container, Grid } from "@mui/material";
 import NewsCard from "../components/NewsCard";
+import useFetch from "../components/UseFetch";
 
 const Home = () => {
-  const [data, setData] = useState([]);
   const apikey = import.meta.env.VITE_API_KEY;
-  const getNews = async () => {
-    try {
-      const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=sports&apiKey=${apikey}`
-      );
-      setData(response.data.articles);
-    } catch (error) {
-      console.error("Error fetching news:", error);
-    }
-  };
-
-  useEffect(() => {
-    getNews();
-  }, []);
+  const url = `https://newsapi.org/v2/everything?q=sports&apiKey=${apikey}`;
+  const { data } = useFetch(url);
 
   return (
     <Container

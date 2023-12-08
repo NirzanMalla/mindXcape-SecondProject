@@ -145,7 +145,7 @@ function Navbar() {
                       key={page}
                       onClick={handleCloseNavMenu}
                       component={NavLink}
-                      to={`/${page.toLowerCase()}`}
+                      to={page === "Home" ? "/" : `/${page.toLowerCase()}`}
                       sx={{
                         mr: 2,
                         textTransform: "none",
@@ -182,7 +182,7 @@ function Navbar() {
                     <Typography
                       textAlign="center"
                       component={NavLink}
-                      to={`/${page.toLowerCase()}`}
+                      to={page === "Home" ? "/" : `/${page.toLowerCase()}`}
                     >
                       {page}
                     </Typography>
