@@ -21,7 +21,6 @@ const useFetch = (url) => {
   useEffect(() => {
     getNews();
   }, []);
-
   return { data, loading, error };
 };
 
